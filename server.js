@@ -30,7 +30,7 @@ app.post('/api/cars', (request, response) => {
     response.send('Car data received');
 });
 
-
+  
 
 // connect to the database
 const mongoose = require('mongoose');
