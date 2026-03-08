@@ -13,5 +13,5 @@ const dbConnect = () => {
     }); 
     mongoose.connect('mongodb://localhost:27017/todoappData')
 }
-
+     
 module.exports = dbConnect;
