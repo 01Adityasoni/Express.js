@@ -26,5 +26,5 @@ dbConnect();
 
 // default route
 app.get('/', (req, res) => {
-    res.send('Welcome to the Todo API');
+    res.send('Welcome to the Todo APP');
 }); 
