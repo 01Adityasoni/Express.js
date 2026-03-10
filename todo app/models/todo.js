@@ -4,7 +4,7 @@ const todoSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        maxLength: 50
+        maxLength: 50 
     },
     description: {
         type: String,

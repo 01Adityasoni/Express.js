@@ -3,7 +3,7 @@ const Todo = require('../models/todo');
 
 // define route handler for creating a new todo item
 exports.createTodo = async (req, res) => {
-    try {
+    try { 
         // create a new todo item using the request body
         const { title, description } = req.body;
         // create a new instance of the Todo model with the provided title and description and insert it into the database
@@ -14,7 +14,7 @@ exports.createTodo = async (req, res) => {
             message: 'Todo item created successfully',
             data: response
         });
-    }
+    } 
     catch (error) {
         // handle any errors that occur during the creation process
         console.log('Error creating todo item:', error);

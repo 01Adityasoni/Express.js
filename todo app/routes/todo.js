@@ -8,7 +8,7 @@ const {updateTodo} = require('../controllers/updateTodo');
 const {deleteTodo} = require('../controllers/deleteTodo');
 
 
-
+  
 // define api route post request to create a new todo item
 router.post('/createTodo', createTodo);
 // define api route get request to fetch all todo items
