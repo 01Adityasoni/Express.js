@@ -12,16 +12,20 @@ app.use(express.json());
 // import the blog routes
 const blogRoutes = require('./routes/blogs');
 // mount the blog routes on the app
-app.use('/api/blog', blogRoutes);
+app.use('/api/v1/blogs', blogRoutes);
+
+
+// connect to the database
+const dbConnect = require('./config/database');
+dbConnect();
+
 
 // start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
-// connect to the database
-const dbConnect = require('./config/database');
-dbConnect();
+
 
 // default route
 app.get('/', (req, res) => {

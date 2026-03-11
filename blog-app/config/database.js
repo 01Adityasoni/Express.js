@@ -15,7 +15,7 @@ const dbConnect = () => {
     }).catch((err) => {
         console.error('Error connecting to MongoDB:', err);
     });
-    mongoose.connect('mongodb://localhost:27017/blogappData')
+    // mongoose.connect('mongodb://localhost:27017/blogappData')
 }
 
 module.exports = dbConnect;
