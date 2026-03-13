@@ -1,33 +1,39 @@
-// import express
+// import expres 
 const express = require('express');
-// create an express app instance
+
+// create an instance of express
 const app = express();
-// load config from env file
+
+// import .env file 
 require('dotenv').config();
-// get the port from env or use default 3000
-const PORT = process.env.PORT || 3000;
-// middleware to parse json request body
+const PORT = process.env.PORT || 3000 ;
+
+// add middleware to parse JSON request bodies
 app.use(express.json());
 
-// import the blog routes
-const blogRoutes = require('./routes/blogs');
-// mount the blog routes on the app
-app.use('/api/v1/blogs', blogRoutes);
+// import routes
+const blogRoutes = require('./routes/blog');
+// mount the blog routes
+app.use('/api/v1', blogRoutes);
 
 
-// connect to the database
-const dbConnect = require('./config/database');
-dbConnect();
+// connect with database and start server only after successful connection
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-
-// start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
-
+mongoose.connect(process.env.MONGODB_URL)
+    .then(() => {
+        console.log('Connected to MongoDB successfully');
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+    })
+    .catch((err) => {
+        console.log('Error connecting to MongoDB : ' + err);
+        process.exit(1);
+    });
 
 // default route
-app.get('/', (req, res) => {
-    res.send('Welcome to the Blog APP');
+app.get('/test', (req, res) => {
+    res.send('Welcome to the Blog API');
 });
